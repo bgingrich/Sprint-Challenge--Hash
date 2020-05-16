@@ -1,8 +1,30 @@
+"""
+Find the numbers that exist in all lists.
+
+# Make the lists flat
+# Count Dict
+# Loop through and increment as keys appear in lists
+# Return key whose value is equal to length of original
+number of arrays
+
+"""
 def intersection(arrays):
 
     """
     YOUR CODE HERE
     """
+    flattened_lists = [value for sublist in arrays for value in sublist]
+
+    count_dict = dict()
+
+    for num in flattened_lists:
+        if num not in count_dict:
+            count_dict[num] = 1
+        else:
+            count_dict[num] += 1
+    
+    result = [value[0] for value in list(count_dict.items()) 
+    if value[1] == len(arrays)]
 
     return result
 
